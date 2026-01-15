@@ -8,8 +8,7 @@
       #213617 100%) !important;
 }
 
-.theme-bg-2.tp-offcanvas-bg,
-.tp-offcanvas-update-bg-2 .tp-offcanvas-bg,
-[tp-theme="tp-theme-dark"] .tp-offcanvas-bg {
+[tp-theme="tp-theme-dark"] .theme-bg-2.tp-offcanvas-bg,
+[tp-theme="tp-theme-dark"] .tp-offcanvas-update-bg-2 .tp-offcanvas-bg {
   background-color: #213617 !important;
 }

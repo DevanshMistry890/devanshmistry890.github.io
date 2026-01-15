@@ -1,6 +1,6 @@
 'use client';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from '@/plugins';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import Image from 'next/image';
 import NavMenu from './menu/NavMenu';

@@ -5,6 +5,7 @@ const nextConfig = {
     silenceDeprecations: ['import'],
   },
   output: "export",
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },

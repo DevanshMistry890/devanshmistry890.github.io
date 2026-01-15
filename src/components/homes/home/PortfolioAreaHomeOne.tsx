@@ -54,7 +54,7 @@ const PortfolioAreaHomeOne = () => {
                 </div>
                 <div className="tp-portfolio-item-wrapper">
                   <div className="tp-portfolio-item mb-70">
-                    <Link href="/portfolio-details">
+                    <Link href="/portfolio-details" prefetch={false}>
                       <div className="tp-portfolio-thumb img-1 w-img fix ">
                         <div className="tp-portfolio-thumb-img include-bg d-none"
                           style={{ backgroundImage: 'url(/assets/img/portfolio/home_promo/p1.jpg)' }}></div>
@@ -79,7 +79,7 @@ const PortfolioAreaHomeOne = () => {
                   </div>
                 </div>
                 <div className="tp-portfolio-more tp-hover-btn-wrapper tp-btn-bounce-2 d-none d-lg-block">
-                  <Link href="/portfolio"
+                  <Link href="/portfolio" prefetch={false}
                     className="tp-hover-btn tp-hover-btn-item tp-btn-circle-2 d-flex align-items-center justify-content-center flex-column">
                     <span className="tp-btn-circle-text-2">
                       Explore <br /> All Project
@@ -96,7 +96,7 @@ const PortfolioAreaHomeOne = () => {
               <div className="tp-portfolio-item-wrapper pl-50">
                 {portfolio_data.map((item, i) =>
                   <div key={i} className="tp-portfolio-item mb-70">
-                    <Link href={item.link}>
+                    <Link href={item.link} prefetch={false}>
                       <div className="tp-portfolio-thumb img-2 w-img fix">
 
                         <div className="tp-portfolio-thumb-img include-bg d-none"

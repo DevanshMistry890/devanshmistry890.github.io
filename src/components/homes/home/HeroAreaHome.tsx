@@ -1,9 +1,9 @@
-'use client' 
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { scroller } from 'react-scroll';
-import {animatedHeadline} from '@/utils/animatedHeadline';
+import { animatedHeadline } from '@/utils/animatedHeadline';
 import HeroHand from "@/assets/img/hero/hero-hand.png";
 import HeroArrowIcon from '@/svg/home/HeroIcons/HeroArrowIcon';
 import { HeroSocialLinks } from '@/components/common/SocialLinks';
@@ -28,7 +28,7 @@ const hero_content: DataType = {
   ],
   sub_title: "Hello, I'm Devansh!",
   title_1: "Engineering",
-  words: ["Intelligent", "Scalable", "Predictive"], 
+  words: ["Intelligent", "Scalable", "Predictive"],
   title_2: "AI Systems",
   sm_info: <>Bridging the gap between Data Science and Application Engineering with Azure, Python, and Generative AI.</>,
   btn_text: <>Get <br /> In Touch</>,
@@ -58,7 +58,7 @@ const HeroAreaHome = () => {
 
   useEffect(() => {
     animatedHeadline()
-  },[])
+  }, [])
 
   return (
     <>
@@ -110,7 +110,7 @@ const HeroAreaHome = () => {
                   <p>{sm_info}</p>
                   <div className="tp-hero-btn wrap">
                     <div className="tp-hover-btn-wrapper tp-btn-bounce">
-                      <Link href="/contact" className="tp-hover-btn tp-hover-btn-item tp-btn-circle square">
+                      <Link href="/contact" className="tp-hover-btn tp-hover-btn-item tp-btn-circle square" prefetch={false}>
                         <span className="tp-btn-circle-text" >
                           {btn_text}
                         </span>

@@ -98,7 +98,7 @@ const PortfolioArea = () => {
 
   const ProjectCard = ({ item, index }: { item: ProjectItem, index: number }) => (
     <div className="tp-portfolio-item mb-70">
-      <Link href={item.link}>
+      <Link href={item.link} prefetch={false}>
         <div className={`tp-portfolio-thumb img-${item.id} w-img fix`}>
           <div className="tp-portfolio-thumb-img">
             <Image

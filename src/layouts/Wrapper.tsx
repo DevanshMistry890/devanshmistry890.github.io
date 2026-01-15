@@ -1,13 +1,15 @@
 "use client";
+
 import { useEffect } from "react";
-import { animationCreate } from "@/utils/utils";
-import { throwableAnimation } from "@/utils/throwableAnimation";
-import ScrollToTop from "@/components/common/ScrollToTop";
-import { ToastContainer } from "react-toastify";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 
+import ScrollTrigger from "gsap/ScrollTrigger";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import SplitText from "gsap/SplitText";
 
+import { animationCreate } from "@/utils/utils";
+import { throwableAnimation } from "@/utils/throwableAnimation";
 import animationTitle from "@/utils/animationTitle";
 import animationTitleChar from "@/utils/animationTitleChar";
 import servicesPanel from "@/utils/servicesPanel";
@@ -15,29 +17,34 @@ import PortfolioPanel from "@/utils/PortfolioPanel";
 import blogAnimation from "@/utils/blogAnimation";
 import linesAnimation from "@/utils/linesAnimation";
 import { buttonAnimation } from "@/utils/buttonAnimation";
-import { scrollSmother } from "@/utils/scrollSmother";
 import { scrollTextAnimation } from "@/utils/scrollTextAnimation";
 import textInvert from "@/utils/textInvert";
-import ContextProvider from "@/context/app-context";
 
-import {
-  ScrollSmoother,
-  ScrollToPlugin,
-  ScrollTrigger,
-  SplitText,
-} from "@/plugins";
+import ScrollToTop from "@/components/common/ScrollToTop";
 import AnimateMouse from "@/components/common/animated-mouse";
-// gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText);
+import ContextProvider from "@/context/app-context";
+import { ToastContainer } from "react-toastify";
+
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(
+    ScrollTrigger,
+    ScrollToPlugin,
+    SplitText
+  );
+}
+
+/* -------------------------------------------------------------------------- */
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 
-const Wrapper = ({ children }: any) => {
+const Wrapper = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
 
+  /* Initial animation setup */
   useEffect(() => {
-    // animation
     const timer = setTimeout(() => {
       animationCreate();
     }, 100);
@@ -45,41 +52,35 @@ const Wrapper = ({ children }: any) => {
     return () => clearTimeout(timer);
   }, []);
 
+  /* Sticky section (desktop only) */
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText);
-    }
-  }, []);
+    if (typeof window === "undefined") return;
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      ScrollSmoother.create({
-        smooth: 1.35,
-        effects: true,
-        smoothTouch: false,
-        normalizeScroll: false,
-        ignoreMobileResize: true,
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1199px)", () => {
+      ScrollTrigger.create({
+        trigger: ".tp-port-3-area",
+        start: "top -60%",
+        end: "bottom 120%",
+        pin: ".tp-port-3-content-left",
+        pinSpacing: true, // REQUIRED for static export
       });
-    }
+    });
+
+    return () => mm.revert();
   }, []);
 
+  /* Route change animations */
   useEffect(() => {
-    // sticky section
-    if (typeof window !== "undefined") {
-      let mm = gsap.matchMedia();
-      mm.add("(min-width: 1199px)", () => {
-        ScrollTrigger.create({
-          trigger: ".tp-port-3-area",
-          start: "top -60%",
-          end: "bottom 120%",
-          pin: ".tp-port-3-content-left",
-          pinSpacing: false,
-        });
-      });
-    }
-  }, []);
+    if (typeof window === "undefined") return;
 
-  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    if (typeof ScrollTrigger !== "undefined") {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.refresh();
+    }
+
     throwableAnimation();
     servicesPanel();
     PortfolioPanel();
@@ -88,22 +89,12 @@ const Wrapper = ({ children }: any) => {
     blogAnimation();
     linesAnimation();
     buttonAnimation();
-    scrollSmother();
-    scrollTextAnimation();
-    textInvert();
     scrollTextAnimation();
     textInvert();
 
-    // Reset scroll on route change
-    if (typeof window !== "undefined") {
-      window.scrollTo(0, 0);
-      setTimeout(() => {
-        // @ts-ignore
-        if (typeof ScrollSmoother !== 'undefined' && ScrollSmoother.get()) {
-          ScrollSmoother.get().scrollTo(0, false);
-        }
-      }, 100); // Small delay to ensure content is rendered
-    }
+    // Reset scroll position safely
+    window.scrollTo(0, 0);
+    ScrollTrigger.refresh();
   }, [pathname]);
 
   return (
