@@ -1,0 +1,10 @@
+:HL["/_next/static/chunks/da47a3c67727b822.css","style"]
+:HL["/_next/static/chunks/ef70825627dcba45.css","style"]
+:HL["/_next/static/chunks/3126d0035909b0be.css","style"]
+:HL["/_next/static/chunks/8f3889d747a52b1d.css","style"]
+:HL["/_next/static/chunks/7ec439a90c8791c7.css","style"]
+:HL["/_next/static/chunks/4020b5f7188ed8f0.css","style"]
+:HC["/",""]
+:HL["/_next/static/chunks/a3aeb3478369dad9.css","style"]
+:HL["https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:wght@400;500;700&family=EB+Garamond:wght@400;500;600;700;800&family=Kufam:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;900&display=swap","style"]
+0:{"buildId":"uh1Lm7DylM-qzKmIlNZaQ","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"portfolio-details","paramType":null,"paramKey":"portfolio-details","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}

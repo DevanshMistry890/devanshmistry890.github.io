@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: /
+Disallow: /home-2
+Disallow: /home-3
+Disallow: /home-4
+Disallow: /home-5
+Disallow: /home-6
+Disallow: /home-7
+Disallow: /home-8
+Disallow: /blog-sidebar/
+Disallow: /blog-details/
+
+Sitemap: https://devanshmistry.com/sitemap.xml
