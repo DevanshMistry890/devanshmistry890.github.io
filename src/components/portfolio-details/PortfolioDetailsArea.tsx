@@ -1,7 +1,11 @@
+"use client";
 
 import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import Count from '../common/Count';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from '@/plugins';
+import { useLayoutEffect } from 'react';
 
 import portfolio_ui from "@/assets/img/portfolio/voice/voice_final_UI.png";
 import portfolio_img_1 from "@/assets/img/portfolio/voice/p1.png";
@@ -57,6 +61,35 @@ const portfolio_detaisl_content: DataType = {
 const { title, features, counter_data, images } = portfolio_detaisl_content
 
 const PortfolioDetailsArea = () => {
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    let ctx = gsap.context(() => {
+      const panels = document.querySelectorAll('.portfolio-panel');
+      const tl = gsap.timeline();
+
+      panels.forEach((section) => {
+        gsap.set(section, { scale: 1 });
+
+        tl.to(section, {
+          scale: 0.8,
+          scrollTrigger: {
+            trigger: section,
+            pin: section,
+            scrub: 1,
+            start: 'top 10%',
+            end: "bottom 60%",
+            endTrigger: '.tp-project-3__area',
+            pinSpacing: false,
+            markers: false,
+          },
+        });
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
       <div className="porfolio-details__overview-wrapper theme-bg-2 pb-160">
