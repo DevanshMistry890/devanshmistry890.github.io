@@ -1,5 +1,6 @@
 'use client';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from '@/plugins';
 import Link from 'next/link';
 import Image from 'next/image';
 import NavMenu from './menu/NavMenu';
@@ -21,6 +22,7 @@ const HeaderOne = () => {
   // header border bottom animation
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
       // Testimonial 3 Image Animation
       gsap.set(".tp-header-border", { width: 0, });
       gsap.to(".tp-header-border", {
@@ -136,7 +138,7 @@ const HeaderOne = () => {
                   </div>
 
                   <div className="tp-header-cv ml-10 d-none d-md-block">
-                    <a className="tp-header-cv-btn" href="assets/img/cv/Mistry_Devansh.pdf">
+                    <a className="tp-header-cv-btn" href="/assets/img/cv/Mistry_Devansh.pdf" target="_blank" rel="noopener noreferrer">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8" stroke="currentColor"
@@ -236,7 +238,7 @@ const HeaderOne = () => {
                     </label>
                   </div>
                   <div className="tp-header-cv ml-10 d-none d-md-block">
-                    <a className="tp-header-cv-btn" href="assets/img/cv/Mistry_Devansh.pdf">
+                    <a className="tp-header-cv-btn" href="/assets/img/cv/Mistry_Devansh.pdf" target="_blank" rel="noopener noreferrer">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8" stroke="currentColor"

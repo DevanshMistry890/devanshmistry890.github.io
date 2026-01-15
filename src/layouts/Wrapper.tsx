@@ -6,7 +6,7 @@ import ScrollToTop from "@/components/common/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
- 
+
 
 import animationTitle from "@/utils/animationTitle";
 import animationTitleChar from "@/utils/animationTitleChar";
@@ -27,7 +27,7 @@ import {
   SplitText,
 } from "@/plugins";
 import AnimateMouse from "@/components/common/animated-mouse";
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText);
+// gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText);
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
@@ -43,6 +43,12 @@ const Wrapper = ({ children }: any) => {
     }, 100);
 
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollSmoother, ScrollTrigger, ScrollToPlugin, SplitText);
+    }
   }, []);
 
   useEffect(() => {
@@ -85,13 +91,26 @@ const Wrapper = ({ children }: any) => {
     scrollSmother();
     scrollTextAnimation();
     textInvert();
+    scrollTextAnimation();
+    textInvert();
+
+    // Reset scroll on route change
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        // @ts-ignore
+        if (typeof ScrollSmoother !== 'undefined' && ScrollSmoother.get()) {
+          ScrollSmoother.get().scrollTo(0, false);
+        }
+      }, 100); // Small delay to ensure content is rendered
+    }
   }, [pathname]);
 
   return (
     <ContextProvider>
       {children}
       <ToastContainer position="top-right" />
-      <AnimateMouse/>
+      <AnimateMouse />
       <ScrollToTop />
     </ContextProvider>
   );
