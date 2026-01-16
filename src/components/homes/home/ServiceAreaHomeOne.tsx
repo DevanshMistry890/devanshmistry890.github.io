@@ -33,6 +33,7 @@ const service_content: DataType = {
         "LLM Fine-tuning & RAG",
         "Natural Language Processing",
         "Predictive Modeling",
+        "Privacy Edge AI"
       ]
     },
     {
