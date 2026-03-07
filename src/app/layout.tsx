@@ -52,6 +52,7 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:wght@400;500;700&family=EB+Garamond:wght@400;500;600;700;800&family=Kufam:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
         />
+        <meta name="google-site-verification" content="6QsoVoIYxVbSt0nrmZ7_JQ96lEMFUYLvrrdyWxJNI-U" />
       </head>
       <body suppressHydrationWarning={true} className="scroll-smooth">
         <ThemeProvider>{children}</ThemeProvider>
