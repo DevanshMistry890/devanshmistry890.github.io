@@ -8,7 +8,9 @@ import { gsap } from 'gsap';
 import project_img_1 from '@/assets/img/portfolio/home_promo/p1.jpg';
 import project_img_2 from '@/assets/img/portfolio/home_promo/p2.jpg';
 import project_img_3 from '@/assets/img/portfolio/home_promo/p3.jpg';
-import project_img_4 from '@/assets/img/portfolio/port-inner-up-2.jpg';
+import project_img_4 from '@/assets/img/portfolio/home_promo/p4.jpg';
+import project_img_5 from '@/assets/img/portfolio/port-inner-up-1.jpg';
+import project_img_6 from '@/assets/img/portfolio/port-inner-up-3.jpg';
 
 
 interface ProjectItem {
@@ -31,6 +33,30 @@ const project_data: ProjectItem[] = [
   },
   {
     id: 2,
+    img: project_img_4,
+    bg_img: '/assets/img/portfolio/p4.jpg',
+    title: 'Tenant-Defender Legal AI',
+    category: 'Strict-CAG & Agentic OCR',
+    link: 'https://github.com/DevanshMistry890/tenant-defender',
+  },
+  {
+    id: 3,
+    img: project_img_5,
+    bg_img: '/assets/img/portfolio/port-inner-up-1.jpg',
+    title: 'Agent-scope Observability',
+    category: 'WebGPU Telemetry & MLOps',
+    link: 'https://github.com/DevanshMistry890/Agent-scope',
+  },
+  {
+    id: 4,
+    img: project_img_6,
+    bg_img: '/assets/img/portfolio/port-inner-up-3.jpg',
+    title: 'B2B Autonomous Negotiator',
+    category: 'Multi-Agent Orchestration',
+    link: 'https://github.com/DevanshMistry890/b2b-autonomous-negotiator',
+  },
+  {
+    id: 5,
     img: project_img_2,
     bg_img: '/assets/img/portfolio/port-inner-up-2.jpg',
     title: 'RAG Recipe Book',
@@ -38,21 +64,12 @@ const project_data: ProjectItem[] = [
     link: '/portfolio-details-2',
   },
   {
-    id: 3,
+    id: 6,
     img: project_img_3,
     bg_img: '/assets/img/portfolio/port-inner-up-4.jpg',
     title: 'Edge AI NLP Analyzer',
     category: 'AI Solutions',
     link: '/portfolio-details-3',
-  },
-
-  {
-    id: 4,
-    img: project_img_4,
-    bg_img: '/assets/img/portfolio/port-inner-up-3.jpg',
-    title: 'Upcoming Project',
-    category: 'AI Solutions',
-    link: '#',
   }
 ];
 
@@ -138,7 +155,7 @@ const PortfolioArea = () => {
       <div className="porfolio-inner__thumb-wrapper tp-portfolio-effect portfolio-list-scroll-text-animation p-relative fix  theme-bg-2 pt-80 pb-50"
         data-scrub="0.0001">
         <div className="portfolio-list-scroll-text pb-80 d-flex align-items-center">
-          <p>Latest Project</p>
+          <p>Latest Projects</p>
           <p>AI Solutions</p>
         </div>
         <div className="container">

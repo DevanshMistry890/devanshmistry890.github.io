@@ -138,7 +138,7 @@ const HeaderOne = () => {
                   </div>
 
                   <div className="tp-header-cv ml-10 d-none d-md-block">
-                    <a className="tp-header-cv-btn" href="/assets/img/cv/Mistry_Devansh.pdf" target="_blank" rel="noopener noreferrer">
+                    <a className="tp-header-cv-btn" href="/assets/img/cv/Devansh_Mistry_AI_Engineer.pdf" target="_blank" rel="noopener noreferrer">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8" stroke="currentColor"
@@ -173,10 +173,10 @@ const HeaderOne = () => {
 
                 <div className="logo">
                   <Link className="logo-white" href="/">
-                    <Image style={{ width: '115px', height: 'auto' }} src={light_logo} alt="diego-image" />
+                    <Image style={{ width: '115px', height: 'auto' }} src={light_logo} alt="Devansh Mistry Logo" />
                   </Link>
                   <Link className="logo-black" href="/">
-                    <Image style={{ width: '115px', height: 'auto' }} src={dark_logo} alt="diego-image" />
+                    <Image style={{ width: '115px', height: 'auto' }} src={dark_logo} alt="Devansh Mistry Logo" />
                   </Link>
                 </div>
 
@@ -238,7 +238,7 @@ const HeaderOne = () => {
                     </label>
                   </div>
                   <div className="tp-header-cv ml-10 d-none d-md-block">
-                    <a className="tp-header-cv-btn" href="/assets/img/cv/Mistry_Devansh.pdf" target="_blank" rel="noopener noreferrer">
+                    <a className="tp-header-cv-btn" href="/assets/img/cv/Devansh_Mistry_AI_Engineer.pdf" target="_blank" rel="noopener noreferrer">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 8C1 11.866 4.13401 15 8 15C11.866 15 15 11.866 15 8" stroke="currentColor"

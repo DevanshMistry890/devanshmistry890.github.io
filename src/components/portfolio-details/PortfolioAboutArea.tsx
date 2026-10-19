@@ -5,7 +5,7 @@ import React from 'react';
 const portfolio_content = {
   subtitle: "ABOUT THE PROJECT",
   title: "Hotel Voice RAG Agent: Real-Time AI Orchestrator",
-  description: "An enterprise-grade voice orchestrator designed to reduce operational overhead by delivering 24/7 Tier-1 support. This system seamlessly blends generative conversation (Gemini 2.5 Flash) with deterministic business logic for secure room reservations. It features sub-500ms latency, local RAG (ChromaDB) for policy retrieval, and an event-driven CRM pipeline that syncs call logs to Google Sheets in real-time.",
+  description: "An enterprise-grade voice orchestrator designed to reduce operational overhead by delivering 24/7 Tier-1 support. Built with a dual-tier architecture—offering a <150ms high-fidelity ElevenLabs tier and a cost-optimized <500ms EdgeTTS/FastAPI WebSocket pipeline—it seamlessly blends generative conversation (Gemini 2.5 Flash) with deterministic tool-calling for room reservations, local RAG (ChromaDB) for policy retrieval, and asynchronous Google Sheets CRM logging.",
 }
 
 const { subtitle, title, description } = portfolio_content
@@ -32,7 +32,7 @@ const PortfolioAboutArea = () => {
                   <span>FastAPI (Python)</span>
                   <span>Gemini 2.5 Flash Lite</span>
                   <span>ChromaDB (RAG)</span>
-                  <span>EdgeTTS / WebSpeech</span>
+                  <span>ElevenLabs & EdgeTTS</span>
                 </div>
                 <div className="porfolio-details__left-content">
                   <h4 className="porfolio-details__left-info-title">Year</h4>

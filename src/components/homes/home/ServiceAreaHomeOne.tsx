@@ -22,51 +22,52 @@ interface DataType {
 const service_content: DataType = {
   subtitle: "Expertise",
   title: <>Intelligent <br /> Solutions.</>,
-  sm_des: <>Bridging the gap between advanced data science, AI algorithms, and scalable full-stack web applications.</>,
+  sm_des: <>Bridging the gap between LLM reasoning architectures, real-time agent orchestration, and scalable full-stack web applications.</>,
   accordion_data: [
     {
       id: 1,
       tab_id: "One",
-      question: "AI & ML Engineering",
-      answer: "I specialize in building, fine-tuning, and deploying custom machine learning models that solve complex business problems.",
+      question: "Agentic AI & LLM Systems",
+      answer: "I architect autonomous multi-agent workflows, real-time voice orchestrators, and grounded retrieval pipelines that eliminate hallucinations.",
       some_features: [
-        "LLM Fine-tuning & RAG",
-        "Natural Language Processing",
-        "Predictive Modeling",
-        "Privacy Edge AI"
+        "Multi-Agent Orchestration (Google ADK)",
+        "Strict-CAG & Vector RAG Pipelines",
+        "Real-Time Voice AI (<150ms Latency)",
+        "Privacy-First Local & Edge LLMs"
       ]
     },
     {
       id: 2,
       tab_id: "Two",
-      question: "Full-Stack AI Development",
-      answer: "I build end-to-end applications that seamlessly integrate AI capabilities into modern, responsive user interfaces.",
+      question: "AI Full-Stack Engineering",
+      answer: "Leveraging modern agentic IDEs (e.g., Antigravity) and full-stack architectures to ship complex ideas from zero to production at 10x speed.",
       some_features: [
-        "Next.js & React Applications",
-        "FastAPI & Python Backend",
-        "AI Agent Integration",
+        "Next.js, React & TypeScript Systems",
+        "AI-Assisted Rapid Prototyping & Vibe Coding",
+        "FastAPI, WebSockets & Microservices",
+        "Deterministic Tool-Calling & API Design",
       ]
     },
     {
       id: 3,
       tab_id: "Three",
-      question: "Data Science & Analytics",
-      answer: "Transforming raw data into actionable insights through rigorous statistical analysis and compelling visualizations.",
+      question: "AI Evaluation & Observability",
+      answer: "Ensuring LLM reliability through human-in-the-loop alignment, real-time telemetry, semantic drift detection, and cost optimization.",
       some_features: [
-        "Exploratory Data Analysis",
-        "Interactive Dashboards",
-        "ETL Pipelines",
+        "Client-Side Agent Observability",
+        "RLHF & LLM Output Alignment",
+        "Token Cost & Latency Telemetry",
       ]
     },
     {
       id: 4,
       tab_id: "Four",
-      question: "MLOps & Cloud Arch",
-      answer: "Ensuring your AI solutions are scalable, secure, and production-ready using modern cloud infrastructure.",
+      question: "MLOps & Cloud Architecture",
+      answer: "Deploying scalable, containerized machine learning pipelines and cloud-native AI infrastructure across enterprise environments.",
       some_features: [
-        "Model Deployment (Docker)",
-        "AWS / Azure / GCP",
-        "Automated CI/CD Workflows",
+        "Azure AI Foundry (AI-102 & DP-100)",
+        "Google Cloud (Vertex AI) & Docker",
+        "Automated CI/CD for ML Systems",
       ]
     }
   ]
@@ -124,19 +125,19 @@ const ServiceAreaHomeOne = () => {
                       <span className="tp-services-capsule-item" style={{ backgroundColor: "#00CC97" }}>Machine Learning</span>
                     </p>
                     <p data-tp-throwable-el="">
-                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#FFDB59", color: "#121212" }}>Data Visualization</span>
+                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#FFDB59", color: "#121212" }}>Agentic AI</span>
                     </p>
                     <p data-tp-throwable-el="">
                       <span className="tp-services-capsule-item" style={{ backgroundColor: "#00CC97" }}>Edge AI</span>
                     </p>
                     <p data-tp-throwable-el="">
-                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#19B3F1" }}>Fullstack Dev</span>
+                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#19B3F1" }}>AI-Native Prototyping</span>
                     </p>
                     <p data-tp-throwable-el="">
-                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#FF759C" }}>MLOps</span>
+                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#FF759C" }}>MLOps & Cloud</span>
                     </p>
                     <p data-tp-throwable-el="">
-                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#FFDB59", color: "#121212" }}>NLP</span>
+                      <span className="tp-services-capsule-item" style={{ backgroundColor: "#FFDB59", color: "#121212" }}>Voice Orchestration</span>
                     </p>
                   </div>
 

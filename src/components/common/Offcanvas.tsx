@@ -92,14 +92,14 @@ const Offcanvas = ({ showCanvas, setShowCanvas, style_bg, style_bg2 }: any) => {
                     devanshmistry890@gmail.com</a>
                 </div>
                 <div className="tpoffcanvas__text">
-                  <p>If in doubt. reach out.</p>
+                  <p>If in doubt, reach out.</p>
                 </div>
               </div>
 
               <div className="tpoffcanvas__social-link">
                 <ul>
-                  <li><a href="https://github.com/DevanshMistry890" target="_blank" rel="noopener noreferrer">Github</a></li>
-                  <li><a href="https://www.linkedin.com/in/devansh-mistry/" target="_blank" rel="noopener noreferrer">Linkedin</a></li>
+                  <li><a href="https://github.com/DevanshMistry890" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                  <li><a href="https://www.linkedin.com/in/devansh-mistry/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
                 </ul>
               </div>
             </div>

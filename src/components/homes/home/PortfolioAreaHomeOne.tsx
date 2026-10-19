@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import portfolio_img_1 from "@/assets/img/portfolio/home_promo/p1.jpg";
-import portfolio_img_2 from "@/assets/img/portfolio/home_promo/p2.jpg";
+import portfolio_img_2 from "@/assets/img/portfolio/home_promo/p4.jpg";
 import portfolio_img_3 from "@/assets/img/portfolio/home_promo/p3.jpg";
 
 import UpArrowIconPortfolio from '@/svg/home/PortfolioIcons/UpArrowIconPortfolio';
@@ -17,16 +17,18 @@ const portfolio_content = {
     {
       id: 2,
       img: portfolio_img_2,
-      bg_img: "/assets/img/portfolio/home_promo/p2.jpg",
-      title: 'RAG Recipe Book',
-      link: "/portfolio-details-2",
+      bg_img: "/assets/img/portfolio/home_promo/p4.jpg",
+      title: 'Tenant-Defender Legal AI',
+      category: 'Strict-CAG & Agentic OCR',
+      link: "https://github.com/DevanshMistry890/tenant-defender",
     },
     {
       id: 3,
       img: portfolio_img_3,
       bg_img: "/assets/img/portfolio/home_promo/p3.jpg",
-      title: "Edge AI NLP Analyzer",
-      link: "/portfolio-details-3",
+      title: "Agent-scope Observability",
+      category: "WebGPU Telemetry & MLOps",
+      link: "https://github.com/DevanshMistry890/Agent-scope",
     }
   ]
 }
@@ -82,7 +84,7 @@ const PortfolioAreaHomeOne = () => {
                   <Link href="/portfolio" prefetch={false}
                     className="tp-hover-btn tp-hover-btn-item tp-btn-circle-2 d-flex align-items-center justify-content-center flex-column">
                     <span className="tp-btn-circle-text-2">
-                      Explore <br /> All Project
+                      Explore <br /> All Projects
                       <span className="tp-btn-circle-arrow-2">
                         <UpArrowIconPortfolio />
                       </span>
@@ -94,33 +96,42 @@ const PortfolioAreaHomeOne = () => {
             </div>
             <div className="col-xl-6 col-lg-6">
               <div className="tp-portfolio-item-wrapper pl-50">
-                {portfolio_data.map((item, i) =>
-                  <div key={i} className="tp-portfolio-item mb-70">
-                    <Link href={item.link} prefetch={false}>
-                      <div className="tp-portfolio-thumb img-2 w-img fix">
-
-                        <div className="tp-portfolio-thumb-img include-bg d-none"
-                          style={{ backgroundImage: `url(${item.bg_img})`, height: "auto" }}></div>
-                        <div className="tp-portfolio-thumb-img">
-                          <Image data-speed="0.85" style={{ height: "auto", }} src={item.img} alt={`${item.title} Project Thumbnail`} />
-                        </div>
-                      </div>
-                      <div className="tp-portfolio-content">
-                        <h3 className="tp-portfolio-title">{item.title}</h3>
-                        <div className="tp-portfolio-meta d-flex align-items-center">
-                          <span className="tp-portfolio-meta-count">0{item.id}</span>
-                          <span className="tp-portfolio-meta-arrow">
-                            <RitghtArrowIconPortfolio />
-                          </span>
-                          <div className="tp-portfolio-meta-hover">
-                            <span>AI Solutions</span>
-                            <span className="tp-portfolio-meta-link">View Project</span>
+                {portfolio_data.map((item, i) => {
+                  const isExternal = item.link.startsWith('http');
+                  return (
+                    <div key={i} className="tp-portfolio-item mb-70">
+                      <Link
+                        href={item.link}
+                        prefetch={false}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                      >
+                        <div className="tp-portfolio-thumb img-2 w-img fix">
+                          <div className="tp-portfolio-thumb-img include-bg d-none"
+                            style={{ backgroundImage: `url(${item.bg_img})`, height: "auto" }}></div>
+                          <div className="tp-portfolio-thumb-img">
+                            <Image data-speed="0.85" style={{ height: "auto" }} src={item.img} alt={`${item.title} Project Thumbnail`} />
                           </div>
                         </div>
-                      </div>
-                    </Link>
-                  </div>
-                )}
+                        <div className="tp-portfolio-content">
+                          <h3 className="tp-portfolio-title">{item.title}</h3>
+                          <div className="tp-portfolio-meta d-flex align-items-center">
+                            <span className="tp-portfolio-meta-count">0{item.id}</span>
+                            <span className="tp-portfolio-meta-arrow">
+                              <RitghtArrowIconPortfolio />
+                            </span>
+                            <div className="tp-portfolio-meta-hover">
+                              <span>{item.category}</span>
+                              <span className="tp-portfolio-meta-link">
+                                {isExternal ? "View on GitHub" : "View Project"}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>

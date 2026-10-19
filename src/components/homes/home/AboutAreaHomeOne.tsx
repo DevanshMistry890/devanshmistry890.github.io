@@ -28,20 +28,20 @@ const about_content: DataType = {
   award_title2: "Azure Data Scientist Associate",
   award_des2: "Microsoft Certified • 2023",
   about_des: <>
-    Hello! I'm <span>Devansh</span>, a results-driven <span>Data Scientist & AI Engineer</span>.
-    I specialize in bridging the gap between research-grade <span>LLM innovation</span> and production-ready web systems.
-    With a background in both <span>Computer Engineering</span> and Web Development, I build responsible, human-centered AI applications using Python, Next.js, and Azure.
+    Hello! I'm <span>Devansh</span>, an <span>AI Application Engineer & Data Scientist</span> who loves turning complex ideas into shipped products.
+    I bridge the gap between <span>Agentic LLM architectures</span>, classical machine learning, and full-stack web systems.
+    Combining experience in <span>LLM alignment & evaluation</span> with modern AI-native workflows (Antigravity, Python, Next.js, and Azure), I architect and ship production-ready systems at high velocity.
   </>,
   counter_data: [
     {
       id: 1,
       count: 25,
-      text: "Project Delivered",
+      text: "Projects Delivered",
     },
     {
       id: 2,
       count: 1,
-      text: "Year of Experience",
+      text: "Years of Experience",
     },
     {
       id: 3,

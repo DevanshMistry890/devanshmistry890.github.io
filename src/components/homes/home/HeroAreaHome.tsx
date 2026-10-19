@@ -28,9 +28,9 @@ const hero_content: DataType = {
   ],
   sub_title: "Hello, I'm Devansh!",
   title_1: "Engineering",
-  words: ["Intelligent", "Scalable", "Predictive"],
+  words: ["Agentic", "Real-Time", "Production"],
   title_2: "AI Systems",
-  sm_info: <>Bridging the gap between Data Science and Application Engineering with Azure, Python, and Generative AI.</>,
+  sm_info: <>Architecting multi-agent workflows, orchestrators, and zero-hallucination RAG systems with Python, Next.js, and Azure AI.</>,
   btn_text: <>Get <br /> In Touch</>,
 
 }

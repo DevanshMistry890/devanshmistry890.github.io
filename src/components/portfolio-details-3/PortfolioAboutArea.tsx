@@ -20,7 +20,7 @@ const PortfolioAboutArea = () => {
               <div className="porfolio-details__left-info">
                 <div className="porfolio-details__left-content">
                   <h4 className="porfolio-details__left-info-title">Project Type</h4>
-                  <span>Personal Portfolio</span>
+                  <span>Edge AI Application</span>
                 </div>
                 <div className="porfolio-details__left-content">
                   <h4 className="porfolio-details__left-info-title">Role</h4>

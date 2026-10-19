@@ -22,12 +22,12 @@ const schema = yup
   .required();
 
 
-const budget_categorys = [
-  { id: "10_20k", title: "10-20k", },
-  { id: "30_40k", title: "30-40k", },
-  { id: "40_50k", title: "40-50k", },
-  { id: "50_100k", title: "50-100k", },
-  { id: "greater_than_100k", title: "> 100k", },
+const opportunity_types = [
+  { id: "full_time", title: "Full-Time Role" },
+  { id: "contract_consulting", title: "Contract / Consulting" },
+  { id: "startup_collab", title: "Startup Collaboration" },
+  { id: "live_demo", title: "Live Demo Request" },
+  { id: "coffee_chat", title: "Networking / Coffee Chat" },
 ]
 
 
@@ -49,15 +49,15 @@ const ContactForm = ({ interests = [] }: ContactFormProps) => {
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
 
-    // Get the selected budget title based on active index
-    const selectedBudget = budget_categorys[activeCategory]?.title || "Not specified";
+    // Get the selected opportunity type based on active index
+    const selectedOpportunity = opportunity_types[activeCategory]?.title || "Not specified";
 
     // Construct payload for Formspree
     const payload = {
       ...data,
-      budget: selectedBudget,
+      opportunity_type: selectedOpportunity,
       interest: interests.join(", "),
-      _subject: `New Portfolio Contact from ${data.name}`,
+      _subject: `New Portfolio Contact from ${data.name} (${selectedOpportunity})`,
     };
 
     try {
@@ -89,41 +89,22 @@ const ContactForm = ({ interests = [] }: ContactFormProps) => {
     }
   };
 
-
-  // handle focus and blur events 
-
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-  const handleFocus2 = () => {
-    setIsFocused2(true);
-  };
-  const handleFocus3 = () => {
-    setIsFocused3(true);
-  };
-  const handleFocus4 = () => {
-    setIsFocused4(true);
-  };
+  const handleFocus = () => setIsFocused(true);
+  const handleFocus2 = () => setIsFocused2(true);
+  const handleFocus3 = () => setIsFocused3(true);
+  const handleFocus4 = () => setIsFocused4(true);
 
   const handleBlur = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (event.target.value === '') {
-      setIsFocused(false);
-    }
+    if (event.target.value === '') setIsFocused(false);
   };
   const handleBlur2 = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (event.target.value === '') {
-      setIsFocused2(false);
-    }
+    if (event.target.value === '') setIsFocused2(false);
   };
   const handleBlur3 = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (event.target.value === '') {
-      setIsFocused3(false);
-    }
+    if (event.target.value === '') setIsFocused3(false);
   };
   const handleBlur4 = (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (event.target.value === '') {
-      setIsFocused4(false);
-    }
+    if (event.target.value === '') setIsFocused4(false);
   };
 
   const handleItemClick = (index: number) => {
@@ -136,19 +117,19 @@ const ContactForm = ({ interests = [] }: ContactFormProps) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="contact-inner__wrapper">
           <div className="postbox__comment-form">
-            <h3 className="contact-inner__form-title">Request A Quote</h3>
+            <h3 className="contact-inner__form-title">Start A Conversation</h3>
             <div className="row gx-20">
               <div className="col-xxl-6 col-xl-6 col-lg-6">
                 <div className="postbox__comment-input mb-35">
                   <input type="text" className="inputText" {...register("name")} onFocus={handleFocus} onBlur={handleBlur} />
-                  <span className={`floating-label ${isFocused ? 'floating-label-floated' : ''}`}>Your  Name</span>
+                  <span className={`floating-label ${isFocused ? 'floating-label-floated' : ''}`}>Your Name</span>
                   <p className="form_error">{errors.name?.message}</p>
                 </div>
               </div>
               <div className="col-xxl-6 col-xl-6 col-lg-6">
                 <div className="postbox__comment-input mb-35">
                   <input type="text" className="inputText" {...register("company")} onFocus={handleFocus2} onBlur={handleBlur2} />
-                  <span className={`floating-label ${isFocused2 ? 'floating-label-floated' : ''}`}>Company</span>
+                  <span className={`floating-label ${isFocused2 ? 'floating-label-floated' : ''}`}>Company / Organization</span>
                   <p className="form_error">{errors.company?.message}</p>
                 </div>
               </div>
@@ -162,7 +143,7 @@ const ContactForm = ({ interests = [] }: ContactFormProps) => {
               <div className="col-xxl-12">
                 <div className="postbox__comment-input mb-20">
                   <textarea className="textareaText" {...register("message")} onFocus={handleFocus4} onBlur={handleBlur4}></textarea>
-                  <span className={`floating-label-2 ${isFocused4 ? 'floating-label-floated' : ''}`}>Your Comment</span>
+                  <span className={`floating-label-2 ${isFocused4 ? 'floating-label-floated' : ''}`}>Your Message</span>
                   <p className="form_error">{errors.message?.message}</p>
                 </div>
               </div>
@@ -171,10 +152,10 @@ const ContactForm = ({ interests = [] }: ContactFormProps) => {
           <div className="row">
             <div className="col-xl-12">
               <div className="contact-inner__category mb-45">
-                <h4 className="contact-inner__category-title">Project budget (USD)</h4>
+                <h4 className="contact-inner__category-title">Opportunity Type</h4>
                 <div className="contact-inner__category-wrapper">
 
-                  {budget_categorys.map((item, index) => (
+                  {opportunity_types.map((item, index) => (
                     <label key={index} htmlFor={item.id}
                       onClick={() => handleItemClick(index)}
                       className={`contact-budget-btn ${activeCategory === index ? 'active' : ''}`}

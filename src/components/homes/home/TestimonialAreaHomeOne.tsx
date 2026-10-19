@@ -39,7 +39,7 @@ interface DataType {
 
 const testimonial_content: DataType = {
   subtitle: "Endorsements",
-  title: "What Professionals say",
+  title: "What Professionals Say",
   info: "Recognized for innovation, engineering depth, and design excellence.",
   testimonial_slider_data: [
     {
@@ -81,7 +81,7 @@ const testimonial_content: DataType = {
     {
       id: 4,
       rating_text: "4.9 Rating",
-      description: `"We needed to move from guesswork to data-driven decisions, and Devansh made that transition seamless. His actionable insights that helped our Scrum team plan more effectively, prioritize the right work, and optimize resource allocation sprint after sprint."`,
+      description: `"His actionable insights helped our Scrum team plan more effectively, prioritize the right work, and optimize resource allocation sprint after sprint."`,
     },
   ],
   testimonial_nav_data: [

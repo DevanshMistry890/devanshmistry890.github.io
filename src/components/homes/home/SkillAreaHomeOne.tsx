@@ -1,8 +1,8 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // skill images
 import skill_img_1 from "@/assets/img/skill/nextjs.png";
-import skill_img_2 from "@/assets/img/skill/react.png";
+import skill_img_2 from "@/assets/img/skill/typescript.png";
 import skill_img_3 from "@/assets/img/skill/doc.png";
 import skill_img_4 from "@/assets/img/skill/fast.png";
 import skill_img_5 from "@/assets/img/skill/mongo.png";
@@ -10,10 +10,10 @@ import skill_img_6 from "@/assets/img/skill/git.png";
 
 import skill_img_7 from "@/assets/img/skill/ic_1.png";
 import skill_img_8 from "@/assets/img/skill/ic_2.png";
-import skill_img_9 from "@/assets/img/skill/ic_9.png";
-import skill_img_10 from "@/assets/img/skill/ic_4.png";
-import skill_img_11 from "@/assets/img/skill/ic_5.png";
-import skill_img_12 from "@/assets/img/skill/ic_6.png";
+import skill_img_9 from "@/assets/img/skill/vertexai.png";
+import skill_img_10 from "@/assets/img/skill/pytorch.png";
+import skill_img_11 from "@/assets/img/skill/hf.png";
+import skill_img_12 from "@/assets/img/skill/ollama.png";
 import Image, { StaticImageData } from 'next/image';
 
 
@@ -32,11 +32,11 @@ interface DataType {
 }
 const skill_content: DataType = {
   subtitle: "Advantage",
-  title: "Skills & tools",
-  info: "A hybrid blend of Data Science research and Fullstack engineering.",
+  title: "Skills & Ecosystem",
+  info: "Combining Data Science depth, Full-Stack engineering, and AI-Native development workflows.",
   skill_data: [
     {
-      tab_id: "Tech",
+      tab_id: "Engineering & Cloud",
       items: [
         {
           img: skill_img_1,
@@ -45,7 +45,7 @@ const skill_content: DataType = {
         },
         {
           img: skill_img_2,
-          title: "React",
+          title: "TypeScript",
           percent: 92
         },
         {
@@ -55,7 +55,7 @@ const skill_content: DataType = {
         },
         {
           img: skill_img_4,
-          title: "FastAPI & Flask",
+          title: "FastAPI",
           percent: 95
         },
         {
@@ -65,13 +65,13 @@ const skill_content: DataType = {
         },
         {
           img: skill_img_6,
-          title: "CI/CD & Git",
+          title: "GitHub Actions",
           percent: 90
         }
       ],
     },
     {
-      tab_id: "AI-ML",
+      tab_id: "AI & Data Science",
       items: [
         {
           img: skill_img_7,
@@ -85,25 +85,24 @@ const skill_content: DataType = {
         },
         {
           img: skill_img_9,
-          title: "LLMs & RAG",
+          title: "Vertex AI",
           percent: 88
         },
         {
           img: skill_img_10,
-          title: "TensorFlow",
+          title: "PyTorch",
           percent: 88
         },
         {
           img: skill_img_11,
-          title: "NumPy",
+          title: "Hugging Face",
           percent: 90
         },
         {
           img: skill_img_12,
-          title: "Visualization",
+          title: "Ollama",
           percent: 88
         }
-
       ],
     }
   ]
@@ -111,67 +110,36 @@ const skill_content: DataType = {
 const { subtitle, title, info, skill_data } = skill_content
 
 const SkillAreaHomeOne = () => {
+  const [activeTab, setActiveTab] = useState(1);
 
   useEffect(() => {
     function tpTabLine2() {
       const marker = document.querySelector('#lineMarker') as HTMLElement;
       const item = document.querySelectorAll('.tp-marker-tab button') as NodeListOf<HTMLButtonElement>;
-
-      // Find the initially active element
       const initiallyActive = document.querySelector('.tp-marker-tab .nav-link.active') as HTMLElement;
 
-      // Set the initial width of the marker based on the initially active element
-      if (initiallyActive) {
+      if (initiallyActive && marker) {
         marker.style.left = initiallyActive.offsetLeft + 'px';
         marker.style.width = initiallyActive.offsetWidth + 'px';
+        marker.style.display = 'block';
       }
 
       function indicator(e: HTMLElement) {
-        marker.style.left = e.offsetLeft + 'px';
-        marker.style.width = e.offsetWidth + 'px';
+        if (marker) {
+          marker.style.left = e.offsetLeft + 'px';
+          marker.style.width = e.offsetWidth + 'px';
+        }
       }
 
       item.forEach(link => {
         link.addEventListener('click', (e) => {
-          indicator(e.target as HTMLElement);
+          indicator(e.currentTarget as HTMLElement);
         });
       });
-
-      marker.style.display = 'block';
-
-      function anchorWidthCounter() {
-        let anchorWidths = 0;
-        let a: HTMLElement;
-        let aWidth: number;
-        let aPadLeft: number;
-        let aPadRight: number;
-        let aTotalWidth: number;
-
-        item.forEach((elem) => {
-          const activeTest = elem.classList.contains('active');
-
-          if (activeTest) {
-            // Break out of the loop.
-            return;
-          }
-
-          a = elem.parentElement as HTMLElement; // Get the parent element
-          aWidth = a.offsetWidth;
-          aPadLeft = parseFloat(getComputedStyle(a).paddingLeft);
-          aPadRight = parseFloat(getComputedStyle(a).paddingRight);
-          aTotalWidth = aWidth + aPadLeft + aPadRight;
-
-          anchorWidths = anchorWidths + aTotalWidth;
-        });
-
-        return anchorWidths;
-      }
     }
 
     tpTabLine2();
   }, []);
-
-
 
   return (
     <>
@@ -200,9 +168,17 @@ const SkillAreaHomeOne = () => {
                 <nav>
                   <div className="nav nav-tabs tp-marker-tab" id="nav-tab" role="tablist">
                     {skill_data.map((item, i) =>
-                      <button key={i} className={`nav-link ${i === 1 ? 'active' : ''}`} id={`nav-${item.tab_id}-tab`} data-bs-toggle="tab"
-                        data-bs-target={`#nav-${item.tab_id}`} type="button" role="tab" aria-controls={`nav-${item.tab_id}`}
-                        aria-selected={`${i === 0 ? 'false' : 'true'}`} tabIndex={-1}> {item.tab_id}
+                      <button
+                        key={i}
+                        onClick={() => setActiveTab(i)}
+                        className={`nav-link ${activeTab === i ? 'active' : ''}`}
+                        id={`nav-tab-${i}`}
+                        type="button"
+                        role="tab"
+                        aria-controls={`nav-pane-${i}`}
+                        aria-selected={activeTab === i}
+                      >
+                        {item.tab_id}
                       </button>
                     )}
                     <span id="lineMarker"></span>
@@ -217,8 +193,14 @@ const SkillAreaHomeOne = () => {
               <div className="tab-content" id="nav-tabContent">
 
                 {skill_data.map((item, i) =>
-                  <div key={i} className={`tab-pane fade ${i === 1 ? 'show active' : ''}`}
-                    id={`nav-${item.tab_id}`} role="tabpanel" aria-labelledby={`nav-${item.tab_id}-tab`} tabIndex={0}>
+                  <div
+                    key={i}
+                    className={`tab-pane fade ${activeTab === i ? 'show active' : ''}`}
+                    id={`nav-pane-${i}`}
+                    role="tabpanel"
+                    aria-labelledby={`nav-tab-${i}`}
+                    tabIndex={0}
+                  >
                     <div className="tp-skill-tab-content tp-skill-radius">
                       <div className="row">
                         {item.items.map((inner_item, index) =>
@@ -231,7 +213,6 @@ const SkillAreaHomeOne = () => {
                                     <Image src={inner_item.img} alt={`${inner_item.title} logo`} />
                                   </span>
                                 </div>
-                                <h3 className="tp-skill-count"><span>{inner_item.percent}</span>%</h3>
                               </div>
                               <div className="tp-skill-content">
                                 <h3 className="tp-skill-title">{inner_item.title}</h3>

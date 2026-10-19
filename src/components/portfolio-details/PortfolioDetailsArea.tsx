@@ -25,10 +25,10 @@ interface DataType {
 const portfolio_detaisl_content: DataType = {
   title: "Standard chatbots often fail at complex tasks. This system acts as an Intelligent Orchestrator, dynamically routing user intent between deterministic booking tools, probabilistic Generative AI (Gemini 2.5), and a Local Knowledge Base (RAG). The result is a secure, 24/7 Tier-1 support agent that handles reservations and policy questions in real-time.",
   features: [
-    "Sub-Second Latency (<500ms) via Gemini 2.5 Flash Lite & EdgeTTS.",
-    "Hybrid Orchestration: Seamlessly switches between General Chat, RAG, and Logic Tools.",
-    "Event-Driven CRM: Asynchronous call logging to Google Sheets without UI blocking.",
-    "Zero Cold-Start: Knowledge base leverages offline ingestion for instant availability."
+    "Dual-Tier Voice Pipeline: High-fidelity ElevenLabs (<150ms) & cost-optimized EdgeTTS/FastAPI (<500ms).",
+    "Hybrid Orchestration: Seamlessly switches between General Chat, Local ChromaDB RAG, and Booking Tools.",
+    "Event-Driven CRM: Asynchronous call logging to Google Sheets without UI thread blocking.",
+    "Zero Cold-Start: Knowledge base leverages offline vector ingestion for instant policy retrieval."
   ],
   counter_data: [
     {

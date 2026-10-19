@@ -42,7 +42,7 @@ const portfolio_detaisl_content: DataType = {
     },
     {
       counter: 25,
-      title: "Model Size (MB) - Quantized",
+      title: "MB Model Size Quantized",
       symbol: "MB"
     }
   ],
@@ -100,7 +100,7 @@ const PortfolioDetailsArea = () => {
                       <div className="porfolio-details__result d-flex align-items-end" key={index}>
                         <span className="child-1 d-inline-block d-flex">
                           <em data-purecounter-duration=".7" className="purecounter" style={{ display: 'inline-block' }}>
-                            <Count number={item.counter} /></em>%
+                            <Count number={item.counter} /></em>{index < 2 && '%'}
                         </span>
                         <span className="child-2">{item.title}</span>
                       </div>
